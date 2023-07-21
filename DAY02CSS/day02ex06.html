@@ -4,41 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <style>
-        div,header,nav,main,aside,article{
-            border:1px dotted brown;
-            margin:3px;
-            padding:3px;
+        div, header, nav, main, aside, article, footer, section {
+            border: 1px dotted brown;
+            margin: 3px;
+            padding: 3px;
             border-radius: 8px;
+            text-align: center;
+        }
+        aside, article {
+            float: left;
+            height: 300px;
+        }
+        aside {
+            width: 20%;
+        }
+        article {
+            width: 55%;
+        }
+        div.container {
+            width: 1000px;
+        }
+
+        footer {
+            clear: both;
+        }
+
+        main article section:nth-child(1) {
+            height: 100px;
+        }
+        main article section:nth-child(2), main article section:nth-child(3) {
+            height: 170px;
+            width: 47%;
+            float: left;
+        }
+        main {
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+            border: 0;
         }
     </style>
-
-
-
-
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Comstudy Codding School</h1>
-            <nav>
-                Home | Profile | Gallery | Lecture | Board 
-            </nav>
-            <main>
-                <aside>Left</aside>
-                <article>
-                    <section>banner</section>
-                    <section>board list</section>
-                    <section>lecture list</section>
-                </article>
-                <aside>Right</aside>
-            </main>
-            <footer>
-                서울시 종로구 견지동
-            </footer>
+            <h1>Comstudy Coding School</h1>
         </header>
+        <nav>
+            Home | Profile | Gallery | Lecture | Board
+        </nav>
+        <main>
+            <aside>Left</aside>
+            <article>
+                <section>banner</section>
+                <section>baord list</section>
+                <section>lecture list</section>
+            </article>
+            <aside>Right</aside>
+        </main>
+        <footer>
+            <address>서울시 종로구 견지동</address>
+        </footer>
     </div>
-    
 </body>
 </html>
