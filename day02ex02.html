@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        ul#top_menu{
+            border:1px solid black;
+            list-style: none;
+            padding:0;
+            width:1000px;
+            /* height:40px; */
+            overflow:hidden;
+        }
+        #top_menu >li{
+            border-top:1px solid red;
+            border-bottom: 1px solid red;
+            margin:0;
+            width:200px;
+            float:left;
+            height:40px;
+            box-sizing:border-box;
+            text-align: center;
+            line-height: 40px;
+            overflow: visible;
+            /* display: flex;
+            flex-direction: column;
+            justify-content: center; */
+        }
+
+        #top_menu>li:hover {
+            background-color: pink;
+            color: yellow;
+            font-weight:bold;
+            text-shadow:1px 1px black;
+        }
+
+        #top_menu>li a{
+            color:black;
+            text-decoration:none;
+        }
+
+        li>div{
+            display:none;
+        }
+
+        #top_menu>li:hover div{
+            display: block;
+        }
+
+    </style>
+<body>
+
+    <header>
+    <h1>comstudy coding school</h1>
+    <nav>
+    <ul ID="top_menu">
+        <li>Home</li>
+        <li>PROFILE</li>
+            <div>sub item </div>
+        <li>GALLERY</li>
+        <li>LECTURE</li>
+        <li>BOARD</li>
+    </ul>
+</nav>
+</header>
+
+</body>
+</html>

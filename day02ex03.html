@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 200px;
+            padding: 20px;
+            background-color: antiquewhite;
+            color: navy;
+            font-weight: bold;
+        }
+
+        input[type=submit]:hover {
+            background-color: pink;
+        }
+
+        input[name=input1] {
+            border: 2px solid red;
+            border-radius: 10px;
+        }
+
+        input[name=input1]:focus {
+            background-color: pink;
+        }
+
+        input[name=input2] {
+            border: none;
+            background-color: skyblue;
+            border-bottom: 4px solid blue;
+        }
+
+        input[name=input2]:focus {
+            background-color: azure;
+        }
+
+        input[name=input3] {
+            width: 10px;
+            transition: width .7s cubic-bezier(.35,-0.02,.53,1.16);
+        }
+
+        input[name=input3]:focus {
+            background-color: pink;
+            width: 100%
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML Form 스타일 설정</h1>
+    <form action="">
+        <input type="text">
+        <input type="text" name="input1">
+        <input type="text" name="input2">
+        <input type="text" name="input3">
+        <br>
+        <input type="submit">
+    </form>
+    
+</body>
+</html>
