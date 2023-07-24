@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var form = document.getElementById("myForm");
+            form.onsubmit = function() {
+                event.preventDefault(); // 이동 기능 일시 정지
+                // 유효성 검사 (validation 체크)
+                if(form.title.value == "") {
+                    alert("제목을 입력 하세요!");
+                    // console.dir(form);
+                    // console.dir(form.title);
+                    // console.dir(form.title.focus);
+                    form.title.focus();
+                    return; // 더 이상 진행 하지 않고 이벤트 핸들러 함수 탈출
+                }
+                if(form.user.value == "") {
+                    alert("이름을 입력 하세요!");
+                    form.user.focus();
+                    return;
+                }
+                if(form.user.length < 2) {
+                    alert("이름을 2글자 이상 입력 하세요!");
+                    form.user.focus();
+                    return;
+                }
+                if(form.content.value == "") {
+                    alert("내용을 입력 하세요!");
+                    form.content.focus();
+                    return;
+                }
+
+                // 모든 유효성 검사를 통과하면 페이지 이동
+                form.action = "board.do";
+                form.submit(); // action페이지로 이동
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>방명록 작성</h1>
+    <form id="myForm" method="post">
+        <fieldset>
+            <legend>방명록</legend>
+            <label for="title">제목:</label>
+            <input type="text" name="title" id="title"><br>
+            <label for="user">이름:</label>
+            <input type="text" name="user" id="user"><br>
+            <label for="title">내용:</label>
+            <textarea name="content" cols="30" rows="5"></textarea><br>
+            <input type="submit" value="저장" />
+        </fieldset>
+    </form>
+</body>
+</html>

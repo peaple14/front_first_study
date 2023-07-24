@@ -1,0 +1,3 @@
+cd 경로이동
+firebase init
+firebase deploy

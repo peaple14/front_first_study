@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="demo">결과: </div>
+    <br>
+    <button id="okBtn">확인</button>
+
+    <script>
+        var demo = document.getElementById("demo");
+        var okBtn = document.getElementById("okBtn");
+
+        //요소.이벤트핸들러 = 익명함수(e){}
+        //익명함수:이름이 없게 선언된 함수.
+        okBtn.onclick = function (){
+        // demo.innerText="결과: 확인버튼을 클릭함."
+        demo.innerHTML = "결과: <strong>확인버튼</strong>을 클릭함."
+        
+        }
+        console.dir(demo);
+        console.dir(okBtn);
+
+    </script>
+
+</body>
+</html>

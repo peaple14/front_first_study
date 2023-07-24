@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>덧셈 계산기</title>
+</head>
+<body>
+    <h1>덧셈 계산기</h1>
+    <form>
+        <p>
+            <input type="text" size="3" id="num1" pattern="\d*">+
+            <input type="text" size="3" id="num2" pattern="\d*">
+            <button id="Btn">=</button>
+            <input type="text" size="3" id="result" readonly>
+        </p>
+        <p>
+            <button type="reset">초기화</button>
+        </p>
+    </form>
+
+    <script>
+        var num1 = document.getElementById("num1");
+        var num2 = document.getElementById("num2");
+        var result = document.getElementById("result");
+        var Btn = document.getElementById("Btn");
+
+        Btn.onclick = function(event){
+            // form의 기본 기능은 페이지 전환이다.
+            // 기본 기능을 제거
+            event.preventDefault();
+
+            var sum = parseInt(num1.value) + parseInt(num2.value);
+            result.value = sum;
+        }
+    </script>
+</body>
+</html>
