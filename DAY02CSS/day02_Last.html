@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <style>
+        div, header, main, aside, article, footer, section {
+            margin: 3px;
+            padding: 3px;
+            border-radius: 8px;
+            text-align: left;
+            font-weight: bold;
+        }
+        body{
+            display:flex;
+            align-items: center;
+        }
+        header section{
+            font-weight: normal;
+            font-size:25px;
+            margin-top: 10px;
+        }
+
+        header h1 {
+        margin-bottom: 10px; 
+        }
+
+        header{
+            background-color: #04AA6D;
+            color:white;
+            font-size:20px;
+            
+        }
+
+        aside, article {
+            float: left;
+            height: 600px;
+        }
+
+        .style-section {
+         background-color: #f1f1f1;
+         padding: 10px;
+         border: 1px solid #ccc;
+         font-weight: bold;
+         text-align: left;
+        }
+
+        .side-bar1{
+            height:50px;
+            font-size:20px;
+            color:white;
+        }
+        .side-bar2{
+            height:300px;
+            font-size:20px;
+            color:white;
+            font-size:15px;
+            padding:4px;
+            line-height: 2;
+            font-weight: normal;
+        }
+
+        aside {
+            width: 20%;
+            height: 550px;
+        }
+        article {
+            width: 55%;
+            height: 550px;
+        }
+        div.container {
+            width: 1000px;
+        }
+
+        footer {
+            clear: both;
+        }
+
+        main article .Right section:nth-child(1) {
+            background-color: yellow;
+            font-size:30px;
+            width: 40px;
+        }
+
+        main article .Right section:nth-child(2) {
+         background-color: orange;
+        }
+        main article section:nth-child(1) {
+            
+            height: 80px;
+            font-size:30px;
+            font-weight: 1000;
+        }
+        main article section:nth-child(3) {
+            height: 80px;
+            font-size:30px;
+            font-weight: 1000;
+        }
+        main article section:nth-child(2), main article section:nth-child(4) {
+            height: 170px;
+            font-size:20
+        }
+        
+
+        .Right {
+        background-color: #32A4E7;
+        height: 550px;
+        }
+        main {
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+
+        address{
+            background-color: lightgray;
+            font-size:12px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to my HomePage</h1>
+            <section>use the menu to select different stylesheets</section>
+        </header>
+    
+        <main>
+            <aside>
+                <section class="style-section" style="background-color: #04AA6D;">stylesheet 1</section>
+                <section class="style-section">stylesheet 2</section>
+                <section class="style-section">stylesheet 3</section>
+                <section class="style-section">stylesheet 4</section>
+                <section class="style-section">stylesheet 5</section>
+                <section class="style-section">No stylesheet</section>
+
+            </aside>
+            <article>
+                <section>Same Page Different<br> StyleSheets</section>
+                <section>This is a demonstration of how different stylesheets can
+                    change the layout of the HTML page. you can change the 
+                    layout of this page by selection different stylesheets in <thead>menu,or by selection one of the following links<br>
+                        <span style="text-decoration: underline;">stylesheet1.</span>
+                        <span style="text-decoration: underline;">stylesheet2.</span>
+                        <span style="text-decoration: underline;">stylesheet3.</span>
+                        <span style="text-decoration: underline;">stylesheet4.</span>
+                    </thead>
+                </section>
+                <section>No Styles</section>
+                <section>This page uses DIV elemets to group different sections of
+                    the HTML page. Click here to see how the page looks like
+                    with no stylesheet:<br>
+                    <span style="text-decoration: underline;">No stylesheets.</span>
+                </section>
+            </article>
+            <aside class="Right">
+                <section class="side-bar1">Side-Bar</section>
+                <section class="side-bar2">lorem ipsum dolor sit amet, consectetuer adipisicing elite,
+                     sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                </section>
+            </aside>
+        </main>
+        <footer>
+            <address>Lorem ipsum dolor sit amet,consectetuer adipsling elit,set diam nonum my nibh euismod tincidunt ut laoreet dolor magna aliquam erat volutpat. Utwisi enim<br>
+            adminim veniam,quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit<br>
+        in vulputate velit esse molestie consequat,vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum<br>
+        <p style="text-align: center;">zzril delenit augue duis dolore te feugait nulla facilisi</p>
+    </address>
+        </footer>
+    </div>
+</body>
+</html>
