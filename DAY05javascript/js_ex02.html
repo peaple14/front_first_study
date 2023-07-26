@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 함수와변수</title>
+</head>
+<body>
+    <script>
+        //연관배열
+        //자바스크립트 객체는 .연산자 or []연산자로 접근
+        //window(최상위)에서는 window===this임.
+        console.log("this === window의 결과는 : " ,this === window);//ture.
+        //window아래에 document, 그아래에 location,cookie같은것 있음.
+        console.dir(window.document.location);
+        console.dir(window[document].location);
+        console.dir(window[document][location]); //셋다 동일.
+
+
+    </script>
+    
+</body>
+</html>

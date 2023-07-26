@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    // 함수 선언
+    // 매개변수는 함수 호출 시 전달 되는 인자를 저장 하는 가인자.
+    // 매개변수 선언시 let, var 같은 키워드 사용 안됨.
+    function myFn1(name, age)  {
+        console.log("myFn1 호출...", name, age);
+        // arguments 객체가 자동으로 생성 된다.
+        console.log(arguments);
+        console.log(arguments[0]);
+        console.log(arguments[1]);
+        console.log(arguments[2]);
+        console.log(arguments[3]);
+        
+        // 함수 내부에세도 this는 window
+        // 자바스크립트는 this가 애매 함.
+        console.log(window === this);
+    }
+
+    // 함수 호출
+    // this.myFn1
+    myFn1('Hong', 23);
+    // window.myFn1
+    myFn1('Hong', 23, '서울시 종로구', '도둑');
+</script>
+</body>
+</html>

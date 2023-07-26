@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        Number.prototype.showData = function(){
+            console.log("showData=> ", this.valueOf());
+        }
+
+
+        var num = 1004;
+        var num1 = 3.14;
+
+        console.log(typeof(num));//number
+        console.log(typeof(num1));//number
+        console.log(num.toString);
+
+        var char1="하이";
+
+        console.log(num+num1+char1);//알아서 더해주고 합쳐줌.
+
+
+        num.showData();//showData=>1004;
+
+
+    </script>
+    
+</body>
+</html>

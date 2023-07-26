@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var a = 0;
+    a = 10;
+    //ES6에 추가된 템플릿 문자열.
+    document.write(`<strong>name</strong> = ${a}`);
+
+    let b=11;
+    //let b=22; 오류. but 각각다른 함수안에서는 같은변수명 가능.
+
+    //var이나 function으로 root에서 선언시 window의 멤버가됨.
+    //let은 window의 멤버가 아님.
+    console.dir(window.name);
+
+    //var은 함수범위,let은 블럭범위.
+
+
+    //함수는 선언하고 호출해야실행됨. c나 자바나 파이썬과 동일.
+    function hungry(){
+        var food = pizza;
+        window.name = "이건됨";
+        colsole.log(food);
+    }
+
+    hungry();
+    //console.log(food);  //함수안에있는 변수 안됨.
+    console.log(name); //최상위 변수는 됨.
+
+    const nochange = "yeap"; // const는 값 변경 불가능.
+    
+
+
+
+    </script>
+    
+</body>
+</html>
