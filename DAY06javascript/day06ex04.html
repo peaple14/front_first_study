@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jQuery CDN -->
+    <script src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <script>
+        // jQuery 진입점
+        // 문서의 DOM 트리가 모드 로드 되면 실행 된다.
+        //window.onload = function(){} 유사하지만 다르다.
+        //window.onload = function(){} 와 함께 사용하지 말것.
+        $(document).ready(function(){
+            console.dir(document);
+            console.dir($(document));
+            console.dir($);
+        })
+    </script>
+    
+</body>
+</html>

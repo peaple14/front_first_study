@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jQuery CDN -->
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h1>Hello world</h1>
+    <button id="okBtn">Ok</button>
+
+<script>
+    // jQuery 진입점
+    // 문서의 DOM 트리가 모드 로드 되면 실행 된다.
+    // window.onload = function(){} 유사하지만 다르다.
+    // window.onload = function(){} 와 함께 사용하지 말것.
+    $(document).ready(function() {
+        //alert("Hello world!");
+
+        // okBtn을 클릭하면 h1의 내용을 변경
+        //var okBtn = document.getElementById("okBtn");
+        //var okBtn = $('#okBtn');
+        //console.log($('#okBtn')[0]);
+        //okBtn[0].onclick = function(e) {
+        //    document.querySelector("h1").innerHTML = "변경 완료!";
+        //}
+        $('#okBtn').click(function() {
+            //$("h1")[0].innerHTML = "바꿨다!";
+            $("h1").html("jQuery 쉽다. 별거 아니네!");
+        });
+    });
+
+
+
+    // window.onLoad, $(document).ready 둘 다 특정 문서가 작동을 할 
+    //준비를 마쳐야 다음 행동을 할 수 있게끔 도와주는 명령어인 것은 알겠으나 
+    //같이 사용하지 말라는 것이 같은 스크립트 단락 하나에 둘 다 같이 쓰지 
+    //말라는 것인지 아니면 html 문서 전체에서 둘 중 하나만 쓰라는 것인지도 
+    //알려주셨으면 하고, 왜 같이 쓰면 안되는지도 알려주실 수 있을까요?
+
+    // jquery 집입점 원형
+    //$(document).ready(function() {});
+    // jquery 진입점 함축형
+    //$(function() {});
+
+
+    // $(선택기) ----> jQuery 객체 반환 (jQuery객체 내부에 DOM이 있다.)
+    // document.querySelectorAll(선택기)  ---> JS DOM 객체 반환
+
+
+
+    // jQuery $함수에 대한 설명
+    function test() {
+        console.dir(document);
+        console.dir( $(document) );
+        console.dir( $ );
+
+        // Javascript에서는 _, $를 이용해서 식별자로 사용 가능.
+        // 식별자: 변수명, 함수명, 클래스명 ... 
+
+        console.log( $ === jQuery);
+        // var $ = jQuery;
+        // _ (underscore 라이브러리의 식별자)
+    }
+</script>
+    
+</body>
+</html>

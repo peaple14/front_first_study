@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #numForm input {
+            text-align: right;
+        }
+        #resultArea {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<h1>정수의 크기 판별</h1>
+<p>정수를 입력 하고 Enter키를 치면 다음 input으로 넘으갑니다.</p>
+<form id="numForm">
+    <fieldset>
+        <legend>서로 다른 정수 3개 입력</legend>
+        <input size="3" type="text">
+        <input size="3" type="text">
+        <input size="3" type="text">
+    </fieldset>
+</form>
+<div id="resultArea">
+    큰수:<span>0</span>, 
+    중간수:<span>0</span>, 
+    작은수:<span>0</span>
+</div>
+
+    
+<script>
+    var resultArea = document.getElementById("resultArea");
+    var numForm = document.querySelector("#numForm");
+    var inputArr = [...numForm.querySelectorAll("input")];
+    var numArr = [];
+    var max=0, mid=0, min=0;
+    
+    inputArr[0].focus();
+    inputArr.forEach((e, i) => {
+        inputArr[i].onkeyup = function(e) {
+            if(e.keyCode === 13) {
+                numArr.push(Number(e.target.value) );
+                try {
+                    e.target.nextElementSibling.focus();
+                } catch(err) {
+                    compare(numArr[0], numArr[1], numArr[2]); /// 판별 하는 함수
+                    e.target.blur();
+                    resultArea.style.display = "block";
+                }
+            }
+        }
+    });
+
+    function compare(a, b, c) {
+        if(a>b) {
+            max = a;
+            min = b;
+        } else {
+            max = b;
+            min = a;
+        }
+        if(c>max) {
+            mid = max;
+            max = c;
+        } else if(c<min) {
+            mid = min;
+            min = c;
+        } else {
+            mid = c;
+        }
+
+        var spanArr = resultArea.querySelectorAll('span');
+        spanArr[0].innerText = max;
+        spanArr[1].innerText = mid;
+        spanArr[2].innerText = min;
+
+    }
+    
+</script>
+</body>
+</html>
