@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div#preview-image {
+            height: 200px;
+            border: 1px solid #aaa;
+            background-color: #eee;
+            overflow: auto;
+        }
+        div#preview-image img {
+            display: block;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>사원 정보 관리</h1>
+    <p>직원 정보 입력, 출력, 검색, 수정, 삭제 기능 한 페이지에 구현.</p>
+    <hr />
+    <form action="">
+        <fieldset>
+            <legend>직원 정보 입력</legend>
+            <table>
+                <tr>
+                    <th><label for="">성명</label></th>
+                    <td><input id="name" type="text"></td>
+                    <td width="30%" rowspan="5" style="background-color:#eee">
+                        <div id="preview-image"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="">부서</label></th>
+                    <td><input id="department" type="text"></td>
+                </tr>
+                <tr>
+                    <th><label for="">직책</label></th>
+                    <td><input id="position" type="text"></td>
+                </tr>
+                <tr>
+                    <th><label for="">이메일</label></th>
+                    <td><input id="email" type="text"></td>
+                </tr>
+                <tr>
+                    <th><label for="">사진</label></th>
+                    <td><input id="photo" type="file" accept="image/*"></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><input type="button" id="addsubmit" value="새 사원 추가"></td>
+                </tr>
+            </table>
+        </fieldset>
+        <hr/>
+        <div>
+            <button type="button" onclick="deleteSelectedMembers()">선택 삭제</button> <!-- 버튼 타입을 "button"으로 지정 -->
+            <form action="">
+                <select>
+                    <option value="">이름</option>
+                    <option value="">부서</option>
+                    <option value="">직책</option>
+                    <option value="">이메일</option>
+                </select>
+                <input type="text">
+                <input type="button" value="검색">
+            </form>
+        </div>
+        <div>
+            <table width="100%" border="1">
+                <thead>
+                    <tr>
+                        <th>선택</th>
+                        <th>번호</th>
+                        <th>성명</th>
+                        <th>부서</th>
+                        <th>직책</th>
+                        <th>이메일</th>
+                        <th>사진</th>
+                        <th>수정</th>
+                        <th>삭제</th>
+                    </tr>
+                </thead>
+                <tbody id="list-area" align="center">
+                </tbody>
+            </table>
+        </div>
+    </form>
+
+    <script>
+        let memberList = [
+            { no: 1, name: "김길동", dept: "영업", position: "과장", email: "gildong@saram.com", photo: "img01.jpg" },
+            { no: 2, name: "김길순", dept: "관리", position: "사원", email: "bbbb@saram.com", photo: "img02.jpg" },
+            { no: 3, name: "박길동", dept: "관리", position: "부장", email: "aaaa@saram.com", photo: "img01.jpg" },
+            { no: 4, name: "이순신", dept: "사업", position: "책임", email: "cccc@saram.com", photo: "img01.jpg" },
+            { no: 5, name: "일지매", dept: "영업", position: "과장", email: "test01@saram.com", photo: "img02.jpg" }
+        ];
+        var mno = 6;
+
+        function render() {
+            let listArea = document.querySelector("#list-area");
+            var rowHtml = "";
+            for (var i = 0; i < memberList.length; i++) {
+                var member = memberList[i];
+                rowHtml += `<tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>${member.no}</td>
+                    <td>${member.name}</td>
+                    <td>${member.dept}</td>
+                    <td>${member.position}</td>
+                    <td>${member.email}</td>
+                    <td><img src="${member.photo}" height="50" /></td>
+                    <td><button>수정</button></td> 
+                    <td><button onclick="deleteMember(${member.no})">삭제</button></td>
+                </tr>`;
+            }
+            listArea.innerHTML = rowHtml;
+        }
+        render();
+
+        // 삭제시
+        function deleteMember(num) {
+            for (let i = 0; i < memberList.length; i++) {
+                if (memberList[i].no === num) {
+                    memberList.splice(i, 1);
+                    break;
+                }
+            }
+            render();
+        }
+
+        // 새사원추가 버튼 클릭시
+        var addsubmit = document.getElementById("addsubmit");
+        addsubmit.onclick = function (e) {
+            var newname = document.getElementById("name").value;
+            var newdepartment = document.getElementById("department").value;
+            var newposition = document.getElementById("position").value;
+            var newemail = document.getElementById("email").value;
+            var newphoto = document.getElementById("photo").value;
+            var newpeople = { no: mno++, name: newname, dept: newdepartment, position: newposition, email: newemail, photo: newphoto };
+            memberList.push(newpeople);
+            render();
+        };
+
+        // 파일 선택시 미리보기 기능 추가
+        let fileInput = document.getElementById("photo");
+        let previewImage = document.getElementById("preview-image");
+
+        fileInput.addEventListener("change", (e) => {
+            previewImage.innerHTML = ""; 
+            const fileList = e.target.files;
+            if (fileList && fileList.length > 0) {
+                for (let i = 0; i < fileList.length; i++) {
+                    const reader = new FileReader();
+                    reader.addEventListener("load", (e2) => {
+                        const readFileResult = e2.target.result;
+                        const imgElement = document.createElement("img");
+                        imgElement.src = readFileResult;
+                        imgElement.height = 100;
+                        previewImage.appendChild(imgElement);
+                    });
+                    reader.readAsDataURL(fileList[i]);
+                }
+            }
+        });
+
+    // 체크하고 선택 삭제 버튼 클릭시
+    function deleteSelectedMembers() {
+        let checkboxes = document.querySelectorAll("#list-area input[type='checkbox']:checked");
+        checkboxes.forEach((checkbox) => {
+            let num = parseInt(checkbox.parentElement.nextElementSibling.textContent);
+            deleteMember(num); 
+        });
+    }
+
+    
+
+        
+    </script>
+</body>
+</html>
