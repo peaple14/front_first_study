@@ -3,6 +3,18 @@ import React, { useState, useEffect } from 'react';
 function MyComponent() {
   const [inputValue, setInputValue] = useState("");
 
+  useEffect(() => {
+    console.log("1. mount ...");
+
+    return (()=>{
+      console.log("3. will unmount ...");
+    });
+  }, []);
+
+  useEffect(()=>{
+    console.log("2. inputValue update ...");
+  }, [inputValue]);
+
   const handleChange = (e)=>{
     setInputValue(e.target.value);
   }
@@ -32,7 +44,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log('2. Component updated');
+    console.log('2. Component count updated');
   }, [count]);
 
   const handleClick = () => {
