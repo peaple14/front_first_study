@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>자바 스크립트 객체의 이해</h1>
+
+    <script>
+        // 자바스크립트에서 객체
+        // 1. new Object();
+        // 2. {} <--- 1회용 객체로 사용 할 때 권장, 
+        // 3. function 키워드 사용
+        // 4. class 키워드 사용 (ES6 이후에 추가 됨)
+
+        var person00 = new Object();
+        person00.name = "이순신";
+        person00.age = 40;
+        person00.job = "장군";
+
+        var person01 = {name:"홍길동", age:12};
+        person01.job = "도둑";
+
+        //console.log("person00 >>> ", person00);
+        //console.log("person01 >>> ", person01);
+    
+
+        // 배열 선언 방법
+        //var arr = new Array(); 대신
+        //var arr = []; 사용 하는 것을 권장.
+        var personArr = [person00, person01, {name:"강감찬", age:32, job:"장군"}];
+        //console.dir(personArr);
+
+        // Object를 JSON 문자열 변환 (JSON 객체 사용)
+        var personArrJSON = JSON.stringify(personArr);
+        //console.log(personArrJSON);
+
+        // JSON 문자열을 객체로 변환
+        var newPersonArr = JSON.parse(personArrJSON);
+        console.log(newPersonArr);
+    </script>
+</body>
+</html>
