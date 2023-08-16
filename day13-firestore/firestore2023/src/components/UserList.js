@@ -45,13 +45,6 @@ function UserList() {
                 })
             }
             </tbody>
-            <tfoot>
-                <tr>
-                    <td colSpan={4}>
-                        <address>Comstudy Coding schools</address>
-                    </td>
-                </tr>
-            </tfoot>
         </table>
     </>);
 }
